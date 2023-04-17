@@ -14,7 +14,7 @@ dotenv.config();
 connectDB();
 
 app.use(cors({
-  origin: 'https://taskmate-s4a6.onrender.com'
+  origin: 'https://taskmate-s4a6.onrender.com/*'
 }));
 
 
