@@ -8,14 +8,12 @@ const todoRoutes = require('./routes/todoRoutes');
 const cors = require('cors');
 // Initialize app and router
 const app = express();
-
+app.use(cors());
 //creating the instance of express app
 dotenv.config();
 connectDB();
 
-app.use(cors({
-  origin: 'https://taskmate-s4a6.onrender.com/*'
-}));
+
 
 
 app.use(express.json()); //to accept json data
