@@ -10,8 +10,6 @@ const authMiddleware = asyncHandler(async (req, res, next) => {
     req.headers.authorization.startsWith("Bearer")
   ) {
     try {
-      console.log(process.env.JWT_SECRET);
-
       token = req.headers.authorization.split(" ")[1];
 
       //decodes token id
@@ -21,17 +19,13 @@ const authMiddleware = asyncHandler(async (req, res, next) => {
 
       next();
     } catch (error) {
-      console.log(process.env.JWT_SECRET);
-
       res.status(401);
       throw new Error("Not authorized, token failed");
     }
   }
 
   if (!token) {
-    console.log(process.env.JWT_SECRET);
-
-    res.status(401);
+       res.status(401);
     throw new Error("Not authorized, no token");
   }
 });
