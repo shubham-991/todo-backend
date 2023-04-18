@@ -8,7 +8,15 @@ const todoRoutes = require('./routes/todoRoutes');
 const cors = require('cors');
 // Initialize app and router
 const app = express();
-app.use(cors());
+
+// Enable CORS for all routes
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', '*');
+  res.setHeader('Access-Control-Allow-Methods', '*');
+  next();
+});
+
 //creating the instance of express app
 dotenv.config();
 connectDB();
